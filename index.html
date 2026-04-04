@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>互动全景医院</title>
+    <script src="aframe1.4.0.min.js"></script>
+    <style>
+        body { margin: 0; padding: 0; overflow: hidden; }
+        #loading { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-family: sans-serif; font-size: 24px; color: white; z-index: 999; text-shadow: 2px 2px 4px #000; }
+    </style>
+</head>
+<body>
+
+    <div id="loading">场景加载中...</div>
+
+    <a-scene cursor="rayOrigin: mouse" raycaster="objects: .clickable">
+    
+        <a-assets>
+            <img id="lobby-bg" src="lobby.jpg">
+            <img id="room1-bg" src="room1.jpg">
+            <img id="room2-bg" src="room2.jpg">
+            <img id="room3-bg" src="room3.jpg">
+        </a-assets>
+    
+        <a-sky id="main-sky" src="#lobby-bg"></a-sky>
+    
+        <a-entity id="lobby-scene" scale="1 1 1">
+            <a-plane class="clickable" id="door1" position="-5 0 -8" scale="2 4 1" opacity="0.3" color="#00ff00" look-at="[camera]"></a-plane>
+            <a-plane class="clickable" id="door2" position="0 0 -8" scale="2 4 1" opacity="0.3" color="#00ff00" look-at="[camera]"></a-plane>
+            <a-plane class="clickable" id="door3" position="5 0 -8" scale="2 4 1" opacity="0.3" color="#00ff00" look-at="[camera]"></a-plane>
+        </a-entity>
+    
+        <a-entity id="room1-scene" visible="false" scale="0 0 0">
+            <a-plane class="clickable" id="r1-doc-hot" position="-2 -1 -4" scale="1.5 3 1" opacity="0.3" color="#0000ff" look-at="[camera]"></a-plane>
+            <a-entity id="r1-doc-bubble" visible="false" position="-2 1.5 -3.5" look-at="[camera]">
+                <a-plane color="white" scale="2.5 0.8 1" opacity="0.9"></a-plane>
+                <a-text value="Doctor: How are you?" color="black" align="center" width="3"></a-text>
+            </a-entity>
+    
+            <a-plane class="clickable" id="r1-pat-hot" position="2 -1 -4" scale="1.5 3 1" opacity="0.3" color="#ffff00" look-at="[camera]"></a-plane>
+            <a-entity id="r1-pat-bubble" visible="false" position="2 1.5 -3.5" look-at="[camera]">
+                <a-plane color="white" scale="2.5 0.8 1" opacity="0.9"></a-plane>
+                <a-text value="Patient: I feel dizzy." color="black" align="center" width="3"></a-text>
+            </a-entity>
+    
+            <a-plane class="clickable" id="back1" position="0 -2.5 -5" scale="1.2 0.4 1" color="#ff0000" look-at="[camera]">
+                <a-text value="BACK" color="white" align="center"></a-text>
+            </a-plane>
+        </a-entity>
+    
+        <a-entity id="room2-scene" visible="false" scale="0 0 0">
+            <a-plane class="clickable" id="r2-doc-hot" position="-2 -1 -4" scale="1.5 3 1" opacity="0.3" color="#0000ff" look-at="[camera]"></a-plane>
+            <a-entity id="r2-doc-bubble" visible="false" position="-2 1.5 -3.5" look-at="[camera]">
+                <a-plane color="white" scale="2.5 0.8 1" opacity="0.9"></a-plane>
+                <a-text value="Doc 2: Take this medicine." color="black" align="center" width="3"></a-text>
+            </a-entity>
+    
+            <a-plane class="clickable" id="r2-pat-hot" position="2 -1 -4" scale="1.5 3 1" opacity="0.3" color="#ffff00" look-at="[camera]"></a-plane>
+            <a-entity id="r2-pat-bubble" visible="false" position="2 1.5 -3.5" look-at="[camera]">
+                <a-plane color="white" scale="2.5 0.8 1" opacity="0.9"></a-plane>
+                <a-text value="Pat 2: Thank you, Doc." color="black" align="center" width="3"></a-text>
+            </a-entity>
+    
+            <a-plane class="clickable" id="back2" position="0 -2.5 -5" scale="1.2 0.4 1" color="#ff0000" look-at="[camera]">
+                <a-text value="BACK" color="white" align="center"></a-text>
+            </a-plane>
+        </a-entity>
+    
+        <a-entity id="room3-scene" visible="false" scale="0 0 0">
+            <a-plane class="clickable" id="r3-doc-hot" position="-2 -1 -4" scale="1.5 3 1" opacity="0.3" color="#0000ff" look-at="[camera]"></a-plane>
+            <a-entity id="r3-doc-bubble" visible="false" position="-2 1.5 -3.5" look-at="[camera]">
+                <a-plane color="white" scale="2.5 0.8 1" opacity="0.9"></a-plane>
+                <a-text value="Doc 3: Rest more." color="black" align="center" width="3"></a-text>
+            </a-entity>
+    
+            <a-plane class="clickable" id="r3-pat-hot" position="2 -1 -4" scale="1.5 3 1" opacity="0.3" color="#ffff00" look-at="[camera]"></a-plane>
+            <a-entity id="r3-pat-bubble" visible="false" position="2 1.5 -3.5" look-at="[camera]">
+                <a-plane color="white" scale="2.5 0.8 1" opacity="0.9"></a-plane>
+                <a-text value="Pat 3: I will." color="black" align="center" width="3"></a-text>
+            </a-entity>
+    
+            <a-plane class="clickable" id="back3" position="0 -2.5 -5" scale="1.2 0.4 1" color="#ff0000" look-at="[camera]">
+                <a-text value="BACK" color="white" align="center"></a-text>
+            </a-plane>
+        </a-entity>
+    
+        <a-camera position="0 1.6 0"></a-camera>
+    </a-scene>
+    
+    <script>
+        document.querySelector('a-scene').addEventListener('loaded', function () {
+            document.getElementById('loading').style.display = 'none';
+        });
+        
+        const mainSky = document.getElementById('main-sky');
+        const lobbyScene = document.getElementById('lobby-scene');
+    
+        const rooms = [
+            { 
+                id: 1, door: 'door1', scene: 'room1-scene', bg: '#room1-bg', back: 'back1',
+                characters: [
+                    { hot: 'r1-doc-hot', bubble: 'r1-doc-bubble' },
+                    { hot: 'r1-pat-hot', bubble: 'r1-pat-bubble' }
+                ]
+            },
+            { 
+                id: 2, door: 'door2', scene: 'room2-scene', bg: '#room2-bg', back: 'back2',
+                characters: [
+                    { hot: 'r2-doc-hot', bubble: 'r2-doc-bubble' },
+                    { hot: 'r2-pat-hot', bubble: 'r2-pat-bubble' }
+                ]
+            },
+            { 
+                id: 3, door: 'door3', scene: 'room3-scene', bg: '#room3-bg', back: 'back3',
+                characters: [
+                    { hot: 'r3-doc-hot', bubble: 'r3-doc-bubble' },
+                    { hot: 'r3-pat-hot', bubble: 'r3-pat-bubble' }
+                ]
+            }
+        ];
+    
+        rooms.forEach(room => {
+            // 1. 进入房间逻辑
+            document.getElementById(room.door).addEventListener('click', () => {
+                mainSky.setAttribute('src', room.bg);
+                
+                // 隐藏大厅并关闭大厅的射线碰撞
+                lobbyScene.setAttribute('visible', 'false');
+                lobbyScene.setAttribute('scale', '0 0 0');
+                
+                // 显示当前目标房间并开启射线碰撞
+                const sceneEl = document.getElementById(room.scene);
+                sceneEl.setAttribute('visible', 'true');
+                sceneEl.setAttribute('scale', '1 1 1'); 
+            });
+    
+            // 2. 房间内人物对话逻辑
+            room.characters.forEach(char => {
+                const hotEl = document.getElementById(char.hot);
+                const bubbleEl = document.getElementById(char.bubble);
+                hotEl.addEventListener('click', () => {
+                    const isNowVisible = !bubbleEl.getAttribute('visible');
+                    bubbleEl.setAttribute('visible', isNowVisible);
+                });
+            });
+    
+            // 3. 返回大厅逻辑
+            document.getElementById(room.back).addEventListener('click', () => {
+                mainSky.setAttribute('src', '#lobby-bg');
+                
+                // 隐藏当前房间并彻底关闭其碰撞检测
+                const sceneEl = document.getElementById(room.scene);
+                sceneEl.setAttribute('visible', 'false');
+                sceneEl.setAttribute('scale', '0 0 0');
+                
+                // 恢复显示大厅并开启碰撞
+                lobbyScene.setAttribute('visible', 'true');
+                lobbyScene.setAttribute('scale', '1 1 1');
+                
+                // 顺便隐藏所有该房间的对话框，恢复初始状态
+                room.characters.forEach(c => document.getElementById(c.bubble).setAttribute('visible', 'false'));
+            });
+        });
+    </script>
+</body>
+</html>
