@@ -114,11 +114,11 @@
                 characters: [
                     {
                         hot: 'r1-doc-hot', bubble: 'r1-doc-bubble',
-                        text: ['Doctor: How are you?', 'Doctor: oh, terrible'],
+                        text: ['Doctor: How are you?', 'Doctor: oh, you should cook your healthy meal'],
                     },
                     {
                         hot: 'r1-pat-hot', bubble: 'r1-pat-bubble',
-                        text: ['Patient: I feel dizzy.', 'Patient: I will take this medicine.']
+                        text: ['Tom: I have heart problems and I eat too much fast food.']
                     }
                 ]
             },
@@ -127,11 +127,11 @@
                 characters: [
                     {
                         hot: 'r2-doc-hot', bubble: 'r2-doc-bubble',
-                        text: ['Doctor: How are you?', 'Doctor: Take this medicine.'],
+                        text: ['Doctor: How are you?', 'Doctor: Take this medicine and you should have some fruit.'],
                     },
                     {
                         hot: 'r2-pat-hot', bubble: 'r2-pat-bubble',
-                        text: ['Patient: I feel dizzy.', 'Patient: Thank you, Doc.'],
+                        text: ['ALice: I have tooth problems because I eat too many sweet things.', 'ALice: Thank you, Doc.'],
                     }
                 ]
             },
@@ -140,11 +140,11 @@
                 characters: [
                     {
                         hot: 'r3-doc-hot', bubble: 'r3-doc-bubble',
-                        text: ['Doctor: How are you?', 'Doctor: Rest more.'],
+                        text: ['Doctor: How are you?', 'Doctor: Rest more and eat three meals a day on time.'],
                     },
                     {
                         hot: 'r3-pat-hot', bubble: 'r3-pat-bubble',
-                        text: ['Patient: I feel dizzy.', 'Patient: I will rest more.'],
+                        text: ['Steve: I feel dizzy and don\'t have any energy .', 'Steve: I will rest more.'],
                     }
                 ]
             }
@@ -187,7 +187,7 @@
                         if (char_text_index[room.id - 1][0] == -1) {
                             target_index = 0;
                         }
-                        else {
+                        else if (char_text_index[room.id - 1][0] < char.text.length) {
                             target_index = char_text_index[room.id - 1][0];
                         }
                         current_value = char.text[target_index];
