@@ -34,58 +34,65 @@
         </a-entity>
     
         <a-entity id="room1-scene" visible="false" scale="0 0 0">
-            <a-plane class="clickable" id="r1-doc-hot" position="-5 0 -0.2" rotation="0 90 0" scale="2.8 4 1" opacity="0.3"
+            <a-plane class="clickable" id="r1-doc-hot" position="-5 0 -0.2" rotation="0 90 0" scale="2.8 4 1" opacity="0"
                 color="#0000ff" look-at="[camera]"></a-plane>
             <a-entity id="r1-doc-bubble" visible="false" position="-4 2.5 -0.3" rotation="0 90 0" look-at="[camera]">
                 <a-plane color="white" scale="2.5 0.8 1" opacity="0.9"></a-plane>
                 <a-text value="Doctor: How are you?" color="black" align="center" width="3"></a-text>
             </a-entity>
     
-            <a-plane class="clickable" id="r1-pat-hot" position="2.5 0 -4" rotation="0 5 0" scale="1.5 3 1" opacity="0.3"
+            <a-plane class="clickable" id="r1-pat-hot" position="2.5 0 -4" rotation="0 5 0" scale="1.5 3 1" opacity="0"
                 color="#ffff00" look-at="[camera]"></a-plane>
             <a-entity id="r1-pat-bubble" visible="false" position="2 2 -3.5" look-at="[camera]">
                 <a-plane color="white" scale="2.5 0.8 1" opacity="0.9"></a-plane>
                 <a-text value="Patient: I feel dizzy." color="black" align="center" width="3"></a-text>
             </a-entity>
     
-            <a-plane class="clickable" id="back1" position="-5 2.5 2" rotation="0 92 0" scale="1.2 0.4 1" color="#ff0000"
+            <a-plane class="clickable" id="back1" position="-5 2.5 2" rotation="0 92 0" scale="1.2 0.4 1" opacity="0.1"
+                color="#ff0000"
                 look-at="[camera]">
                 <a-text value="BACK" color="white" align="center"></a-text>
             </a-plane>
         </a-entity>
     
         <a-entity id="room2-scene" visible="false" scale="0 0 0">
-            <a-plane class="clickable" id="r2-doc-hot" position="-2 -1 -4" scale="1.5 3 1" opacity="0.3" color="#0000ff" look-at="[camera]"></a-plane>
-            <a-entity id="r2-doc-bubble" visible="false" position="-2 1.5 -3.5" look-at="[camera]">
+            <a-plane class="clickable" id="r2-doc-hot" position="-4 0.2 -0.3" rotation="0 89 0" scale="2 2.3 1" opacity="0"
+                color="#0000ff" look-at="[camera]"></a-plane>
+            <a-entity id="r2-doc-bubble" visible="false" position="-4 2 0" rotation="0 90 0" look-at="[camera]">
                 <a-plane color="white" scale="2.5 0.8 1" opacity="0.9"></a-plane>
                 <a-text value="Doc 2: Take this medicine." color="black" align="center" width="3"></a-text>
             </a-entity>
     
-            <a-plane class="clickable" id="r2-pat-hot" position="2 -1 -4" scale="1.5 3 1" opacity="0.3" color="#ffff00" look-at="[camera]"></a-plane>
-            <a-entity id="r2-pat-bubble" visible="false" position="2 1.5 -3.5" look-at="[camera]">
+            <a-plane class="clickable" id="r2-pat-hot" position="-1.5 0 4" rotation="0 170 0" scale="1.5 3 1" opacity="0"
+                color="#ffff00" look-at="[camera]"></a-plane>
+            <a-entity id="r2-pat-bubble" visible="false" position="-1.5 2 4" rotation="0 170 0" look-at="[camera]">
                 <a-plane color="white" scale="2.5 0.8 1" opacity="0.9"></a-plane>
                 <a-text value="Pat 2: Thank you, Doc." color="black" align="center" width="3"></a-text>
             </a-entity>
     
-            <a-plane class="clickable" id="back2" position="0 -2.5 -5" scale="1.2 0.4 1" color="#ff0000" look-at="[camera]">
+            <a-plane class="clickable" id="back2" position="-3.5 2.5 2.5" rotation="0 130 0" scale="1.2 0.4 1" opacity="0.1" opc
+                color="#ff0000" look-at="[camera]">
                 <a-text value="BACK" color="white" align="center"></a-text>
             </a-plane>
         </a-entity>
     
         <a-entity id="room3-scene" visible="false" scale="0 0 0">
-            <a-plane class="clickable" id="r3-doc-hot" position="-2 -1 -4" scale="1.5 3 1" opacity="0.3" color="#0000ff" look-at="[camera]"></a-plane>
-            <a-entity id="r3-doc-bubble" visible="false" position="-2 1.5 -3.5" look-at="[camera]">
+            <a-plane class="clickable" id="r3-doc-hot" position="-2 0.8 2" rotation="0 135 0" scale="1.5 1.8 1" opacity="0"
+                color="#0000ff" look-at="[camera]"></a-plane>
+            <a-entity id="r3-doc-bubble" visible="false" position="-3 2.2 3" rotation="0 135 0" look-at="[camera]">
                 <a-plane color="white" scale="2.5 0.8 1" opacity="0.9"></a-plane>
                 <a-text value="Doc 3: Rest more." color="black" align="center" width="3"></a-text>
             </a-entity>
     
-            <a-plane class="clickable" id="r3-pat-hot" position="2 -1 -4" scale="1.5 3 1" opacity="0.3" color="#ffff00" look-at="[camera]"></a-plane>
-            <a-entity id="r3-pat-bubble" visible="false" position="2 1.5 -3.5" look-at="[camera]">
+            <a-plane class="clickable" id="r3-pat-hot" position="-1.3 0 -4" rotation="0 30 0" scale="1.5 3 1" opacity="0"
+                color="#ffff00" look-at="[camera]"></a-plane>
+            <a-entity id="r3-pat-bubble" visible="false" position="-1.3 2 -4" rotation="0 30 0" look-at="[camera]">
                 <a-plane color="white" scale="2.5 0.8 1" opacity="0.9"></a-plane>
                 <a-text value="Pat 3: I will." color="black" align="center" width="3"></a-text>
             </a-entity>
     
-            <a-plane class="clickable" id="back3" position="0 -2.5 -5" scale="1.2 0.4 1" color="#ff0000" look-at="[camera]">
+            <a-plane class="clickable" id="back3" position="-5 4 3" rotation="0 130 0" scale="1.2 0.4 1" opacity="0.1"
+                color="#ff0000" look-at="[camera]">
                 <a-text value="BACK" color="white" align="center"></a-text>
             </a-plane>
         </a-entity>
