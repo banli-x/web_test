@@ -97,33 +97,53 @@
         document.querySelector('a-scene').addEventListener('loaded', function () {
             document.getElementById('loading').style.display = 'none';
         });
-        
+
         const mainSky = document.getElementById('main-sky');
         const lobbyScene = document.getElementById('lobby-scene');
-    
+
         const rooms = [
             { 
                 id: 1, door: 'door1', scene: 'room1-scene', bg: '#room1-bg', back: 'back1',
                 characters: [
-                    { hot: 'r1-doc-hot', bubble: 'r1-doc-bubble' },
-                    { hot: 'r1-pat-hot', bubble: 'r1-pat-bubble' }
+                    {
+                        hot: 'r1-doc-hot', bubble: 'r1-doc-bubble',
+                        text: ['Doctor: How are you?', 'Doctor: oh, terrible'],
+                    },
+                    {
+                        hot: 'r1-pat-hot', bubble: 'r1-pat-bubble',
+                        text: ['Patient: I feel dizzy.', 'Patient: I will take this medicine.']
+                    }
                 ]
             },
             { 
                 id: 2, door: 'door2', scene: 'room2-scene', bg: '#room2-bg', back: 'back2',
                 characters: [
-                    { hot: 'r2-doc-hot', bubble: 'r2-doc-bubble' },
-                    { hot: 'r2-pat-hot', bubble: 'r2-pat-bubble' }
+                    {
+                        hot: 'r2-doc-hot', bubble: 'r2-doc-bubble',
+                        text: ['Doctor: How are you?', 'Doctor: Take this medicine.'],
+                    },
+                    {
+                        hot: 'r2-pat-hot', bubble: 'r2-pat-bubble',
+                        text: ['Patient: I feel dizzy.', 'Patient: Thank you, Doc.'],
+                    }
                 ]
             },
             { 
                 id: 3, door: 'door3', scene: 'room3-scene', bg: '#room3-bg', back: 'back3',
                 characters: [
-                    { hot: 'r3-doc-hot', bubble: 'r3-doc-bubble' },
-                    { hot: 'r3-pat-hot', bubble: 'r3-pat-bubble' }
+                    {
+                        hot: 'r3-doc-hot', bubble: 'r3-doc-bubble',
+                        text: ['Doctor: How are you?', 'Doctor: Rest more.'],
+                    },
+                    {
+                        hot: 'r3-pat-hot', bubble: 'r3-pat-bubble',
+                        text: ['Patient: I feel dizzy.', 'Patient: I will rest more.'],
+                    }
                 ]
             }
         ];
+
+    let char_text_index = [[-1, -1], [-1, -1], [-1, -1]];
     
         rooms.forEach(room => {
             // 1. 进入房间逻辑
@@ -144,9 +164,30 @@
             room.characters.forEach(char => {
                 const hotEl = document.getElementById(char.hot);
                 const bubbleEl = document.getElementById(char.bubble);
+                const textEl = bubbleEl.querySelector('a-text');
                 hotEl.addEventListener('click', () => {
-                    const isNowVisible = !bubbleEl.getAttribute('visible');
-                    bubbleEl.setAttribute('visible', isNowVisible);
+                    bubbleEl.setAttribute('visible', 'true');
+                    if (char.hot.indexOf('doc') !== -1) {
+                        let current_value = textEl.getAttribute('value');
+                        let target_index = char_text_index[room.id - 1][1] + 1 < char.text.length ? char_text_index[room.id - 1][1] + 1 : char_text_index[room.id - 1][0];
+                        current_value = char.text[target_index];
+                        char_text_index[room.id - 1][0] = target_index;
+                        textEl.setAttribute('value', current_value);
+                        console.log(char_text_index);
+                    } else {
+                        let current_value = textEl.getAttribute('value');
+                        let target_index = char_text_index[room.id - 1][1];
+                        if (char_text_index[room.id - 1][0] == -1) {
+                            target_index = 0;
+                        }
+                        else {
+                            target_index = char_text_index[room.id - 1][0];
+                        }
+                        current_value = char.text[target_index];
+                        char_text_index[room.id - 1][1] = target_index;
+                        textEl.setAttribute('value', current_value);
+                        console.log(char_text_index);
+                    }
                 });
             });
     
@@ -165,6 +206,7 @@
                 
                 // 顺便隐藏所有该房间的对话框，恢复初始状态
                 room.characters.forEach(c => document.getElementById(c.bubble).setAttribute('visible', 'false'));
+                char_text_index = [[-1, -1], [-1, -1], [-1, -1]];
             });
         });
     </script>
